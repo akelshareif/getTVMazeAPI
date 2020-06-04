@@ -1,5 +1,5 @@
 async function searchShows(query) {
-    const res = await axios.get('http://api.tvmaze.com/search/shows', {
+    const res = await axios.get('https://api.tvmaze.com/search/shows', {
         params: { q: query },
     });
     const showData = res.data.reduce((shows, show) => {
@@ -52,7 +52,7 @@ $('#search-form').on('submit', async function handleSearch(evt) {
 });
 
 async function getEpisodes(id) {
-    const res = await axios.get(`http://api.tvmaze.com/shows/${id}/episodes`);
+    const res = await axios.get(`https://api.tvmaze.com/shows/${id}/episodes`);
     const episodeData = res.data.reduce((episodeArr, episode) => {
         episodeArr.push({
             name: episode.name,
